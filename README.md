@@ -18,6 +18,19 @@ For my user it was inside the *~/.ansible/plugins/modules* folder
 
 Then use one of the following examples. Remember to fill the vCenter variables within your inventory.
 
+The VM must be powered off you can use vmware_guest:
+```
+    - name: Stop the VMs
+      vmware_guest:
+        hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_username }}"
+        password: "{{ vcenter_password }}"
+        validate_certs: no
+        datacenter: "{{ datacenter_name }}"
+        name: UbuntuTest
+        state: poweredoff
+```
+
 ## Examples Adding vGPU
 ```
 - hosts: localhost
@@ -29,6 +42,7 @@ Then use one of the following examples. Remember to fill the vCenter variables w
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
         datacenter: "{{ datacenter_name }}"
+        validate_certs: no
         name: UbuntuTest
         pci_id: 'grid_m10-8q'
         state: present
@@ -50,6 +64,7 @@ Then use one of the following examples. Remember to fill the vCenter variables w
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
         datacenter: "{{ datacenter_name }}"
+        validate_certs: no
         name: UbuntuTest
         pci_id: 'grid_m10-8q'
         state: absent
