@@ -83,17 +83,6 @@ class PyVmomiHelper(PyVmomi):
             vmConfigSpec.deviceChange = [new_device_config]
             vmConfigSpec.memoryReservationLockedToMax = True
 
-            #spec = vim.VirtualMachineConfigSpec()
-            #spec.deviceChange = [vim.VirtualDeviceConfigSpec()]
-            #spec.deviceChange[0] = VirtualDeviceConfigSpec()
-            #spec.deviceChange[0].operation = 'add'
-            #spec.deviceChange[0].device = vim.VirtualPCIPassthrough()
-            #spec.deviceChange[0].device.deviceInfo = vim.Description()
-            #spec.deviceChange[0].device.deviceInfo.summary = ''
-            #spec.deviceChange[0].device.deviceInfo.label = 'New Shared PCI device vGPU'
-            #spec.deviceChange[0].device.backing = vim.VirtualPCIPassthroughVmiopBackingInfo()
-            #spec.deviceChange[0].device.backing.vgpu = vgpuprfl
-
             try:
                 task = vm_obj.ReconfigVM_Task(spec=vmConfigSpec)
                 wait_for_task(task)
