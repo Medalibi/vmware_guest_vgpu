@@ -20,7 +20,7 @@ Then use one of the following examples. Remember to fill the vCenter variables w
 
 The VM must be powered off you can use vmware_guest:
 ```
-    - name: Stop the VMs
+    - name: Make sure VM is power off
       vmware_guest:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
@@ -36,7 +36,7 @@ The VM must be powered off you can use vmware_guest:
 - hosts: localhost
   gather_facts: no
   tasks:
-    - name: add pci
+    - name: Add vGPU profile to VM
       vmware_guest_pci:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
@@ -58,7 +58,7 @@ The VM must be powered off you can use vmware_guest:
 - hosts: localhost
   gather_facts: no
   tasks:
-    - name: add pci
+    - name: Remove vGPU profile to VM
       vmware_guest_pci:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
