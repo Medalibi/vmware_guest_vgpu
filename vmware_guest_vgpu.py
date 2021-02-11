@@ -16,7 +16,7 @@ description:
     - This module is used to reconfigure vGPU card profile of given virtual machine.
     - All parameters and VMware object names are case sensitive.
 author:
-    - Mohamed Alibi (@MedAlibi) <alibimohamed@gmail.com>
+    - Mohamed Alibi (@Medalibi) <alibimohamed@gmail.com>
 notes:
     - Tested on vSphere 6.7
 requirements:
