@@ -37,7 +37,7 @@ The VM must be powered off you can use vmware_guest:
   gather_facts: no
   tasks:
     - name: Add vGPU profile to VM
-      vmware_guest_pci:
+      vmware_guest_vgpu:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
@@ -59,7 +59,7 @@ The VM must be powered off you can use vmware_guest:
   gather_facts: no
   tasks:
     - name: Remove vGPU profile to VM
-      vmware_guest_pci:
+      vmware_guest_vgpu:
         hostname: "{{ vcenter_hostname }}"
         username: "{{ vcenter_username }}"
         password: "{{ vcenter_password }}"
