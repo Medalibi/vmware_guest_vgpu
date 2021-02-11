@@ -44,7 +44,7 @@ The VM must be powered off you can use vmware_guest:
         datacenter: "{{ datacenter_name }}"
         validate_certs: no
         name: UbuntuTest
-        pci_id: 'grid_m10-8q'
+        vgpu: 'grid_m10-8q'
         state: present
       register: vgpu_facts
 
@@ -66,7 +66,7 @@ The VM must be powered off you can use vmware_guest:
         datacenter: "{{ datacenter_name }}"
         validate_certs: no
         name: UbuntuTest
-        pci_id: 'grid_m10-8q'
+        vgpu: 'grid_m10-8q'
         state: absent
       register: vgpu_facts
 
