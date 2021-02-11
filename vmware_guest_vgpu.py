@@ -22,7 +22,7 @@ notes:
 requirements:
     - "python >= 3.6"
     - PyVmomi
-    - VM must be power off community.vmware.vmware_guest module can perform thate task
+    - VM must be power off community.vmware.vmware_guest module can perform that task
 options:
    name:
      description:
@@ -66,7 +66,7 @@ options:
      choices: [ 'present', 'absent' ]
      description:
        - vGPU profile state.
-       - When C(state=present), ther selected vGPU profile will be added if the VM hosted ESXi host Nvidia GPU offer it.
+       - When C(state=present), the selected vGPU profile will be added if the VM hosted ESXi host Nvidia GPU offer it.
        - When C(state=absent), the selected vGPU profile gets removed from the VM.
     type: str
     vgpu:
@@ -81,27 +81,27 @@ extends_documentation_fragment:
 
 EXAMPLES = r'''
 - name: Add vGPU profile to VM
-  vmware_guest_pci:
+  vmware_guest_vgpu:
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
     datacenter: "{{ datacenter_name }}"
     validate_certs: no
     name: UbuntuTest
-    pci_id: 'grid_m10-8q'
+    vgpu: 'grid_m10-8q'
     state: present
   delegate_to: localhost
   register: vgpu_facts
 
 - name: Remove vGPU profile to VM
-  vmware_guest_pci:
+  vmware_guest_vgpu:
     hostname: "{{ vcenter_hostname }}"
     username: "{{ vcenter_username }}"
     password: "{{ vcenter_password }}"
     datacenter: "{{ datacenter_name }}"
     validate_certs: no
     name: UbuntuTest
-    pci_id: 'grid_m10-8q'
+    vgpu: 'grid_m10-8q'
     state: absent
   delegate_to: localhost
   register: vgpu_facts
